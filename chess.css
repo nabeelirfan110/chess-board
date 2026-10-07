@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page: light grey background, board in the center */
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ececec;
+}
+
+/* Board: grey border around all squares.
+   90vmin = 90% of the smaller side of the screen,
+   so the board always fits (no media query needed). */
+.board {
+  width: 90vmin;
+  max-width: 640px;
+  border: 16px solid #ababab;
+}
+
+/* Every row puts its 8 squares side by side */
+.row {
+  display: flex;
+}
+
+/* Every square is dark maroon by default.
+   12.5% = 100 / 8, so 8 squares fill the row exactly. */
+.square {
+  width: 12.5%;
+  aspect-ratio: 1 / 1;
+  background: #430f11;
+}
+
+/* Light squares:
+   odd squares in odd rows + even squares in even rows.
+   This makes the checkered (alternate) pattern. */
+.row:nth-child(odd) .square:nth-child(odd),
+.row:nth-child(even) .square:nth-child(even) {
+  background: #ececec;
+}
